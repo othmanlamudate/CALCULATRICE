@@ -25,6 +25,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    flavorDimensions 'type'
+    productFlavors {
+        payante {
+            dimension 'type'
+            applicationIdSuffix 'payante'
+            versionNameSuffix 'payante'
+        }
+        gratuite {
+            dimension 'type'
+            applicationIdSuffix 'gratuite'
+            versionNameSuffix 'gratuite'
+        }
+    }
 }
 
 dependencies {

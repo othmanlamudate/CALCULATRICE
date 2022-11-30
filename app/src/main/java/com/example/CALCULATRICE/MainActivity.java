@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
 
                     resl.setText(calculate(ecran.getText().toString()));
-                    
+                    ecran.setText(resl.getText());
 
                 }
                 catch (Exception e){
@@ -107,15 +107,18 @@ public class MainActivity extends AppCompatActivity {
     protected String calculate(String s){
             String[] T=s.split("");
             ArrayList<String> T1=new ArrayList<String>();
-            ArrayList<String> T2=new ArrayList<String>();
-            int i,temp;
+            String[] T2=s.split("");
+            int i;
+            double temp;
             String x="";
             for(i=0;i<T.length;i++){
                 if(T[i].equals("*") ||  T[i].equals("/")  ||  T[i].equals("-") ||  T[i].equals("+")  )
                 {
-                    T1.add(x);
-                    T1.add(T[i]);
-                    x="";
+                    if(!x.equals("")) {
+                        T1.add(x);
+                        T1.add(T[i]);
+                        x = "";
+                    }
                 }
                 else{
                     x+=T[i];
@@ -126,10 +129,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+
+            if(T[1].equals("-")) {
+                   T1.set(0, "-" + T1.get(0));
+            }
+           
+
+
             for(i=0;i<T1.size();i++){
                 if(T1.get(i).equals("*"))
                 {
-                    temp=Integer.valueOf(T1.get(i-1))*Integer.valueOf(T1.get(i+1));
+                    temp=Double.valueOf(T1.get(i-1))*Double.valueOf(T1.get(i+1));
                     T1.set(i-1,String.valueOf(temp));
                     T1.remove(i);
                     T1.remove(i);
@@ -137,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(T1.get(i).equals("/"))
                 {
-                    temp=Integer.valueOf(T1.get(i-1))/Integer.valueOf(T1.get(i+1));
+                    temp=Double.valueOf(T1.get(i-1))/Double.valueOf(T1.get(i+1));
                     T1.set(i-1,String.valueOf(temp));
                     T1.remove(i);
                     T1.remove(i);
@@ -147,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
             for(i=0;i<T1.size();i++){
                 if(T1.get(i).equals("+"))
                 {
-                    temp=Integer.valueOf(T1.get(i-1))+Integer.valueOf(T1.get(i+1));
+                    temp=Double.valueOf(T1.get(i-1))+Double.valueOf(T1.get(i+1));
                     T1.set(i-1,String.valueOf(temp));
                     T1.remove(i);
                     T1.remove(i);
@@ -155,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(T1.get(i).equals("-"))
                 {
-                    temp=Integer.valueOf(T1.get(i-1))-Integer.valueOf(T1.get(i+1));
+                    temp=Double.valueOf(T1.get(i-1))-Double.valueOf(T1.get(i+1));
                     T1.set(i-1,String.valueOf(temp));
                     T1.remove(i);
                     T1.remove(i);
