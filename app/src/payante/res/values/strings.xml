@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">CALCULATRICE</string>
+    <string name="zero">0</string>
+    <string name="un">1</string>
+    <string name="deux">2</string>
+    <string name="trois">3</string>
+    <string name="qtr">4</string>
+    <string name="cinq">5</string>
+    <string name="six">6</string>
+    <string name="sept">7</string>
+    <string name="huit">8</string>
+    <string name="n">9</string>
+    <string name="sous">-</string>
+    <string name="plus">+</string>
+    <string name="div">/</string>
+    <string name="mul">*</string>
+    <string name="equal">=</string>
+    <string name="mod">%</string>
+    <string name="dive">D</string>
+    <string name="sup">C</string>
+</resources>
